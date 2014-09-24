@@ -1,4 +1,4 @@
-# stream-content
+# stream-content [![Build Status](https://travis-ci.org/ddliu/node-stream-content.png)](https://travis-ci.org/ddliu/node-stream-content)
 
 Convert between stream and buffer(or string).
 
@@ -8,7 +8,7 @@ Convert between stream and buffer(or string).
 var sc = require('stream-content');
 ```
 
-### `readAll(readableStream, [encoding,] callback)`
+### `readAll(readableStream, [encoding], callback)`
 
 Read content from a readable stream.
 
@@ -18,7 +18,7 @@ sc.readAll(readableStream, encoding, function(err, data) {
 });
 ```
 
-### `writeAll(writableStream, content, [encoding,] callback)`
+### `writeAll(writableStream, content, [encoding], callback)`
 
 Write content into a writable stream.
 
@@ -28,7 +28,7 @@ sc.writeAll(writableStream, 'hello world', function(err) {
 });
 ```
 
-### `createReadableStream(content, encoding)`
+### `createReadableStream(content, [encoding])`
 
 Create a readable stream from content.
 
