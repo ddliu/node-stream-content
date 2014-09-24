@@ -1,10 +1,10 @@
 {
   "name": "stream-content",
   "version": "0.1.0",
-  "description": "Stream and content work together",
+  "description": "Convert between stream and buffer(or string)",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -15,7 +15,8 @@
     "buffer",
     "string",
     "readAll",
-    "writeAll"
+    "writeAll",
+    "createReadStream"
   ],
   "author": "dong <ddliuhb@gmail.com>",
   "license": "MIT",
@@ -24,5 +25,9 @@
   },
   "dependencies": {
     "once": "~1.3.1"
+  },
+  "devDependencies": {
+    "mocha": "^1.21.4",
+    "should": "^4.0.4"
   }
 }
