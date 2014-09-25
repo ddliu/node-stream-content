@@ -46,6 +46,7 @@ sc.createReadableStreamFromCallback(function(cb) {
         cb('hello world');
     }, 1000);
 });
+```
 
 ### `createWritableStreamFromCallback(fn)`
 

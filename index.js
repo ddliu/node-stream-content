@@ -25,7 +25,7 @@ exports.readAll = function(stream, encoding, cb) {
             return cb(null, encoding?'':new Buffer(''));
         }
 
-        if (typeof data[0] === 'String') {
+        if (typeof data[0] === 'string') {
             data = data.join('');
             cb(null, data);
         } else if (Buffer.isBuffer(data[0])) {
