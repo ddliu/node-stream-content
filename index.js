@@ -2,6 +2,7 @@
 
 var once = require('once');
 var Readable = require('stream').Readable;
+var Writable = require('stream').Writable;
 var inherits = require('util').inherits;
 
 exports.readAll = function(stream, encoding, cb) {
@@ -68,3 +69,57 @@ exports.createReadStream = function (content, encoding) {
 
     return new SimpleReadable(content);
 };
+
+inherits(CallbackReadable, Readable);
+
+function CallbackReadable(fn) {
+    this._fn = fn;
+    Readable.call(this);
+}
+
+CallbackReadable.prototype._read = function(size) {
+    var self = this;
+    this._fn(function(err, data) {
+        if (err) {
+            self.emit('error', err);
+        } else {
+            self.push(data);
+            self.push(null);
+        }
+    });
+};
+
+exports.createReadStreamFromCallback = function(fn) {
+    return new CallbackReadable(fn);
+}
+
+inherits(CallbackWritable, Writable);
+
+function CallbackWritable(fn) {
+    this._fn = fn;
+    this._data = [];
+    Writable.call(this);
+}
+
+CallbackWritable.prototype._write = function(chunk, encoding, cb) {
+    if (typeof chunk === 'string') {
+        chunk = new Buffer(chunk, encoding);
+    }
+
+    this._data.push(chunk);
+    if (this._cb) {
+        this._cb();
+    }
+    this._cb = cb;
+}
+
+CallbackWritable.prototype.end = function(chunk, encoding, callback) {
+    Writable.prototype.end.call(this, chunk, encoding, callback);
+    if (this._data.length && this._cb) {
+        this._fn(Buffer.concat(this._data), this._cb);
+    }
+};
+
+exports.createWriteStreamFromCallback = function(fn) {
+    return new CallbackWritable(fn);
+}

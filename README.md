@@ -36,7 +36,32 @@ Create a readable stream from content.
 sc.createReadableStream('hello world').pipe(process.stdout);
 ```
 
+### `createReadableStreamFromCallback(fn)`
+
+Create a readable stream from callback of a function.
+
+```js
+sc.createReadableStreamFromCallback(function(cb) {
+    setTimeout(function() {
+        cb('hello world');
+    }, 1000);
+});
+
+### `createWritableStreamFromCallback(fn)`
+
+Create a writable stream from callback of a function.
+
+```js
+sc.createWritableStreamFromCallback(function(content, cb) {
+    fs.writeFile('file.txt', content, cb);
+});
+```
+
 ## Changelog
+
+### v0.1.1 (2014-09-25)
+
+Add callback helpers
 
 ### v0.1.0 (2014-09-24)
 

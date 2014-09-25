@@ -1,6 +1,6 @@
 {
   "name": "stream-content",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Convert between stream and buffer(or string)",
   "main": "index.js",
   "scripts": {
