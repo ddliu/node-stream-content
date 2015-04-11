@@ -1,6 +1,6 @@
 {
   "name": "stream-content",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Convert between stream and buffer(or string)",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "writeAll",
     "createReadStream"
   ],
-  "author": "dong <ddliuhb@gmail.com>",
+  "author": "Liu Dong <ddliuhb@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ddliu/node-stream-content/issues"

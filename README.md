@@ -2,6 +2,11 @@
 
 Convert between stream and buffer(or string).
 
+[![npm](https://img.shields.io/npm/v/stream-content.svg?style=flat-square)](https://www.npmjs.com/package/stream-content)
+[![npm](https://img.shields.io/npm/dm/stream-content.svg?style=flat-square)](https://www.npmjs.com/package/stream-content)
+[![Travis](https://img.shields.io/travis/ddliu/node-stream-content.svg?style=flat-square)](https://travis-ci.org/ddliu/node-stream-content)
+![npm](https://img.shields.io/npm/l/stream-content.svg?style=flat-square)
+
 ## Usage
 
 ```js
@@ -57,13 +62,3 @@ sc.createWritableStreamFromCallback(function(content, cb) {
     fs.writeFile('file.txt', content, cb);
 });
 ```
-
-## Changelog
-
-### v0.1.1 (2014-09-25)
-
-Add callback helpers
-
-### v0.1.0 (2014-09-24)
-
-Initial release

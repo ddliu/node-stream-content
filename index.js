@@ -83,8 +83,12 @@ CallbackReadable.prototype._read = function(size) {
         if (err) {
             self.emit('error', err);
         } else {
-            self.push(data);
-            self.push(null);
+            if (self._hasRead) {
+                self.push(null);
+            } else {
+                self._hasRead = true;
+                self.push(data);
+            }
         }
     });
 };
