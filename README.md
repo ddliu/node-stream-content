@@ -1,4 +1,4 @@
-# stream-content [![Build Status](https://travis-ci.org/ddliu/node-stream-content.png)](https://travis-ci.org/ddliu/node-stream-content)
+# stream-content
 
 Convert between stream and buffer(or string).
 
